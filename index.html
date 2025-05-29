@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simon Youn – Engineering Portfolio</title>
+  <style>
+    /* Reset & base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header with background image */
+    header {
+      position: relative;
+      background: url('header-placeholder.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+    /* Top bar: email + nav */
+    header .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    header .top .contact {
+      font-size: 0.9rem;
+    }
+    header nav a {
+      color: #fff;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero text */
+    .hero {
+      text-align: center;
+      padding: 0 2rem 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.25rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+    .hero h2 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    /* Main content */
+    main {
+      max-width: 900px;
+      margin: -3rem auto 2rem; /* pulls up over header bottom */
+      background: #fff;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .section {
+      margin-bottom: 2.5rem;
+    }
+    .section h3 {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 3px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+    .section p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Footer with social links */
+    footer {
+      background: #f8f8f8;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-size: 1rem;
+    }
+    footer a {
+      color: #333;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* If you want icons, uncomment the FontAwesome script below */
+  </style>
+</head>
+<body>
+
+  <header id="home">
+    <div class="top">
+      <div class="contact">simonjpyoun@gmail.com</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+    <div class="hero">
+      <h1>Simon Youn</h1>
+      <h2>Engineering Portfolio</h2>
+    </div>
+  </header>
+
+  <main>
+    <section id="passion" class="section">
+      <h3>Passion</h3>
+      <p>
+        <!-- Describe your engineering passions here: robotics, FPGA design, clean energy, etc. -->
+      </p>
+    </section>
+
+    <section id="experience" class="section">
+      <h3>Experience</h3>
+      <p>
+        <!-- Summarize internships, competitions, research, and other relevant experience. -->
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#" target="_blank" rel="noopener">
+      <!-- <i class="fab fa-linkedin"></i> --> LinkedIn
+    </a>
+    <a href="resume.pdf" target="_blank" rel="noopener">
+      <!-- <i class="fas fa-file-alt"></i> --> Resume
+    </a>
+    <a href="mailto:simonjpyoun@gmail.com">
+      <!-- <i class="fas fa-envelope"></i> --> Email
+    </a>
+  </footer>
+
+  <!-- Optional: Font Awesome for icons -->
+  <!-- <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" defer></script> -->
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simon Youn – Contact</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --charcoal: #1e1e1e;
+      --teal: #14B8A6;
+      --light-teal: #5ce0d3;
+      --dark-teal: #0f8e80;
+      --white: #F9FAFB;
+      --gray: #6B7280;
+      --light-gray: #e2e8f0;
+      --dark-gray: #1a1a1a;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--charcoal);
+      color: var(--white);
+      position: relative;
+      overflow-x: hidden;
+      padding-top: 56px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(30, 30, 30, 0.95) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(20, 184, 166, 0.3);
+      transition: var(--transition);
+      z-index: 1000;
+    }
+
+    .navbar.scrolled {
+      background: rgba(26, 26, 26, 0.98) !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--teal) !important;
+      letter-spacing: 1px;
+    }
+
+    .navbar .navbar-brand span {
+      color: var(--white);
+    }
+
+    .navbar .nav-link {
+      color: var(--white) !important;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .navbar .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--teal);
+      transition: var(--transition);
+    }
+
+    .navbar .nav-link:hover:after,
+    .navbar .nav-link.active:after {
+      width: 100%;
+    }
+
+    .navbar .nav-link.active {
+      color: var(--teal) !important;
+      font-weight: 600;
+    }
+
+    .navbar .nav-link:hover {
+      color: var(--teal) !important;
+    }
+
+    /* Section generic */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--white);
+      display: inline-block;
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--teal);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* Contact form */
+    .contact-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-content label {
+      font-weight: 500;
+      color: var(--light-gray);
+    }
+
+    .contact-content .form-control {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      padding: 12px 16px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .contact-content .form-control:focus {
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.3);
+      border-color: var(--teal);
+      color: var(--white);
+    }
+
+    .contact-content .btn-primary {
+      background: var(--teal);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .contact-content .btn-primary:hover {
+      background: var(--light-teal);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(20, 184, 166, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-gray);
+      padding: 60px 0 30px;
+      position: relative;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+
+    .footer-text {
+      color: var(--gray);
+      max-width: 400px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--teal);
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--teal);
+      color: var(--charcoal);
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--teal);
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal);
+      transform: translateX(5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 40px;
+      color: var(--gray);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 50px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 991.98px) {
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Simon<span>Youn</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="experience.html">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="awards.html">Awards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out via email or connect on LinkedIn and GitHub</p>
+      </div>
+
+      <div class="contact-content">
+        <form>
+          <div class="mb-4">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Your name" required>
+          </div>
+          <div class="mb-4">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="you@example.com" required>
+          </div>
+          <div class="mb-4">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" class="form-control" rows="5" placeholder="Your message..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+
+        <div class="mt-5">
+          <h4>Or connect with me:</h4>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/simon-youn-80426b306/" class="social-link" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/simonandz" class="social-link" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:simonjpyoun@gmail.com" class="social-link">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="footer-logo">Simon Youn</div>
+            <p class="footer-text">High School FPGA &amp; Embedded Systems Designer creating innovative hardware solutions and pushing the boundaries of digital design.</p>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/simon-youn-80426b306/" class="social-link" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/simonandz" class="social-link" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="mailto:simonjpyoun@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+            <div class="footer-links">
+              <h4>Navigation</h4>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+            <div class="footer-links">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="resume.pdf">Resume</a></li>
+                <li><a href="projects.html">Project Gallery</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4">
+            <div class="footer-links">
+              <h4>Contact</h4>
+              <ul>
+                <li><i class="fas fa-envelope me-2"></i> simonjpyoun@gmail.com</li>
+                <li><i class="fas fa-map-marker-alt me-2"></i> Bergen County, NJ</li>
+                <li><i class="fas fa-school me-2"></i> Bergen County Technical HS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Simon Youn. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

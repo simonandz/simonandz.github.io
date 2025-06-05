@@ -1,3 +1,4 @@
+<!-- projects.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,61 +6,293 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Simon Youn – Projects</title>
 
-  <!-- Google Font: Poppins -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      padding-top: 56px; /* Offset for fixed navbar */
+    :root {
+      --charcoal: #1e1e1e;
+      --teal: #14B8A6;
+      --white: #F9FAFB;
+      --gray: #6B7280;
+      --card-bg: #393939;
+      --card-border: #555;
+      --muted-text: #A0A0A0;
+      --transition: all 0.3s ease;
     }
 
-    /* Optional: subtle lift on hover */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--charcoal);
+      color: var(--white);
+      scroll-behavior: smooth;
+      padding-top: 56px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(30, 30, 30, 0.95) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(20, 184, 166, 0.3);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(26, 26, 26, 0.98) !important;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--teal) !important;
+      letter-spacing: 1px;
+    }
+
+    .navbar .navbar-brand span {
+      color: var(--white);
+    }
+
+    .navbar .nav-link {
+      color: var(--white) !important;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .navbar .nav-link.active {
+      color: var(--teal) !important;
+      font-weight: 600;
+    }
+
+    .navbar .nav-link:hover {
+      color: var(--teal) !important;
+    }
+
+    /* Section generic */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--white);
+      display: inline-block;
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--teal);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* Card styling */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .card img {
+      object-fit: cover;
+      height: 180px;
+    }
+
+    .card-title {
+      color: var(--white);
+    }
+
+    .card-text {
+      color: var(--gray);
+    }
+
+    .btn-primary {
+      background-color: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--white);
+      color: var(--charcoal);
+      border-color: var(--teal);
+    }
+
+    /* Hover effect */
     .card:hover {
       transform: translateY(-4px);
-      transition: transform 0.2s ease-in-out;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      padding: 60px 0 30px;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+
+    .footer-text {
+      color: var(--gray);
+      max-width: 400px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--teal);
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--teal);
+      color: var(--charcoal);
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--teal);
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+      color: var(--gray);
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal);
+      transform: translateX(5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 40px;
+      color: var(--gray);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 50px;
+    }
+
+    @media (max-width: 991.98px) {
+      .section-title h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Fixed-top Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand fw-bold fs-4" href="index.html">Simon Youn</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <a class="navbar-brand" href="index.html">Simon<span>Youn</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 flex-row">
-          <li class="nav-item me-3">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          <li class="nav-item me-3">
-            <a class="nav-link active" aria-current="page" href="projects.html">Projects</a>
+          <li class="nav-item">
+            <a class="nav-link active" href="projects.html">Projects</a>
           </li>
-          <li class="nav-item me-3">
+          <li class="nav-item">
             <a class="nav-link" href="experience.html">Experience</a>
           </li>
-          <li class="nav-item me-3">
+          <li class="nav-item">
             <a class="nav-link" href="awards.html">Awards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
       </div>
@@ -67,32 +300,25 @@
   </nav>
 
   <!-- Projects Section -->
-  <section id="projects" class="my-5">
+  <section class="section" id="projects">
     <div class="container">
-      <h2 class="h3 mb-4">Projects</h2>
-      <p class="mb-5">
-        The following projects highlight my hands-on work in FPGA design, embedded systems, and software tooling. Each card includes a brief summary, main technologies, and links to GitHub or live demos.
-      </p>
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Below are highlights of my hands-on work in CPU design, ASIC accelerators, robotics, and analog systems. Click any card to see full details—including objectives, outcomes, and key skills.</p>
+      </div>
 
       <div class="row gy-4">
         <!-- Project Card #1 -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-sm">
-            <img src="images/fpga_cnn_accelerator.png" class="card-img-top" alt="FPGA CNN Accelerator Screenshot">
+            <img src="images/zoom_zoom.png" class="card-img-top" alt="Zoom Zoom CPU">
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">FPGA CNN Accelerator</h5>
-              <h6 class="card-subtitle text-muted mb-2">March 2025</h6>
+              <h5 class="card-title">Zoom Zoom CPU &amp; Keccak f1600 Accelerator</h5>
               <p class="card-text flex-grow-1">
-                Designed a Verilog-based CNN accelerator on an Artix-7 FPGA to run MNIST inferences at 12 GFLOPS while consuming 0.8 W. Incorporated fixed-point quantization (Q8.24) and AXI-Lite control.
+                Custom 16-bit CPU with integrated Keccak-f1600 accelerator, built for TinyTapeOut’s TT08.
               </p>
-              <ul class="list-inline mb-3">
-                <li class="list-inline-item badge bg-secondary">Verilog</li>
-                <li class="list-inline-item badge bg-secondary">Artix-7</li>
-                <li class="list-inline-item badge bg-secondary">Python</li>
-              </ul>
               <div class="mt-auto">
-                <a href="https://github.com/SimonYoun/fpga-cnn-accelerator" class="btn btn-primary btn-sm me-2" target="_blank">GitHub</a>
-                <a href="#" class="btn btn-outline-primary btn-sm" disabled>Demo</a>
+                <a href="projects/zoom_zoom.html" class="btn btn-primary btn-sm">Learn More</a>
               </div>
             </div>
           </div>
@@ -101,21 +327,14 @@
         <!-- Project Card #2 -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-sm">
-            <img src="images/3d_printer_course.png" class="card-img-top" alt="3D Printer Course Screenshot">
+            <img src="images/nn_asic.png" class="card-img-top" alt="Neural Network ASIC">
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">3D Printing Course Materials</h5>
-              <h6 class="card-subtitle text-muted mb-2">September 2024</h6>
+              <h5 class="card-title">Neural Network ASIC Accelerator</h5>
               <p class="card-text flex-grow-1">
-                Developed a comprehensive curriculum on 3D modeling (Fusion 360) and Prusa i3 3D printing. Created 10 lecture slides and two hands-on kits that reached over 150 students at Bergen Tech.
+                Q8.24 fixed-point neural-network accelerator synthesized with Yosys + OpenLane.
               </p>
-              <ul class="list-inline mb-3">
-                <li class="list-inline-item badge bg-secondary">Fusion 360</li>
-                <li class="list-inline-item badge bg-secondary">Prusa i3</li>
-                <li class="list-inline-item badge bg-secondary">CAD</li>
-              </ul>
               <div class="mt-auto">
-                <a href="https://github.com/SimonYoun/3d-printing-course" class="btn btn-primary btn-sm me-2" target="_blank">GitHub</a>
-                <a href="#" class="btn btn-outline-primary btn-sm" disabled>Demo</a>
+                <a href="projects/nn_asic.html" class="btn btn-primary btn-sm">Learn More</a>
               </div>
             </div>
           </div>
@@ -124,43 +343,176 @@
         <!-- Project Card #3 -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-sm">
-            <img src="images/archival_ml_model.png" class="card-img-top" alt="Archival ML Model Screenshot">
+            <img src="images/medical_robot.jpeg" class="card-img-top" alt="Medical Delivery Robot">
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Archival ML Model</h5>
-              <h6 class="card-subtitle text-muted mb-2">July 2024</h6>
+              <h5 class="card-title">Self-Driving Medical Delivery Robot</h5>
               <p class="card-text flex-grow-1">
-                Built a document-embedding pipeline using GloVe embeddings (300-dim) and K-means clustering to tag and index historical documents at the NJ Aviation Hall of Fame. Improved search accuracy by 27 %.
+                Autonomous delivery robot for Newark pharmacies—focus on electronics &amp; control.
               </p>
-              <ul class="list-inline mb-3">
-                <li class="list-inline-item badge bg-secondary">Python</li>
-                <li class="list-inline-item badge bg-secondary">GloVe</li>
-                <li class="list-inline-item badge bg-secondary">K-means</li>
-              </ul>
               <div class="mt-auto">
-                <a href="https://github.com/SimonYoun/archival-ml" class="btn btn-primary btn-sm me-2" target="_blank">GitHub</a>
-                <a href="#" class="btn btn-outline-primary btn-sm" disabled>Demo</a>
+                <a href="projects/medical_robot.html" class="btn btn-primary btn-sm">Learn More</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Copy & adapt this block for each additional project -->
+        <!-- Project Card #4 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/seaperch.png" class="card-img-top" alt="Seaperch ROV">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Seaperch Underwater ROV</h5>
+              <p class="card-text flex-grow-1">
+                Third-place Seaperch NJ States ROV—designed circuitry, power management, and buoyancy.
+              </p>
+              <div class="mt-auto">
+                <a href="projects/seaperch.html" class="btn btn-primary btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card #5 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/analog_computer.png" class="card-img-top" alt="Analog Computer">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Analog Computer for Damped Harmonic Motion</h5>
+              <p class="card-text flex-grow-1">
+                Analog‐circuit model of damped‐spring ODE, verified on oscilloscope via SPICE simulation.
+              </p>
+              <div class="mt-auto">
+                <a href="projects/analog_computer.html" class="btn btn-primary btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card #6 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/microplastics_experiment.png" class="card-img-top" alt="Microplastics Experiment">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">NASA Microplastics Density Experiment</h5>
+              <p class="card-text flex-grow-1">
+                In-progress stratospheric microplastics frequency study—hardware design &amp; planned launch.
+              </p>
+              <div class="mt-auto">
+                <a href="projects/microplastics.html" class="btn btn-primary btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card #7 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/temp_controller.png" class="card-img-top" alt="On/Off Temperature Controller">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">On/Off Temperature Controller</h5>
+              <p class="card-text flex-grow-1">
+                PID feedback on Simulink for relay-based heating-pad control.
+              </p>
+              <div class="mt-auto">
+                <a href="projects/temp_controller.html" class="btn btn-primary btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card #8 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/tollbooth.png" class="card-img-top" alt="Toll Booth Controller">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Toll Booth Controller</h5>
+              <p class="card-text flex-grow-1">
+                FPGA-based tollbooth state machine built in Multisim and deployed on actual hardware.
+              </p>
+              <div class="mt-auto">
+                <a href="projects/tollbooth.html" class="btn btn-primary btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-light py-4">
-    <div class="container text-center">
-      <a href="https://www.linkedin.com/in/simon-youn-80426b306/" class="mx-3 text-decoration-none">LinkedIn</a>
-      <a href="resume.pdf" class="mx-3 text-decoration-none">Resume</a>
-      <a href="mailto:simonjpyoun@gmail.com" class="mx-3 text-decoration-none">Email</a>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="footer-logo">Simon Youn</div>
+            <p class="footer-text">High School FPGA &amp; Embedded Systems Designer creating innovative hardware solutions and pushing the boundaries of digital design.</p>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/simon-youn-80426b306/" class="social-link" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/simonandz" class="social-link" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="mailto:simonjpyoun@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+            <div class="footer-links">
+              <h4>Navigation</h4>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+            <div class="footer-links">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="resume.pdf">Resume</a></li>
+                <li><a href="projects.html">Project Gallery</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4">
+            <div class="footer-links">
+              <h4>Contact</h4>
+              <ul>
+                <li><i class="fas fa-envelope me-2"></i> simonjpyoun@gmail.com</li>
+                <li><i class="fas fa-map-marker-alt me-2"></i> Bergen County, NJ</li>
+                <li><i class="fas fa-school me-2"></i> Bergen County Technical HS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Simon Youn. All Rights Reserved.</p>
+      </div>
     </div>
   </footer>
 
   <!-- Bootstrap JS Bundle -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+<!-- projects/zoom_zoom.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zoom Zoom CPU &amp; Keccak f1600 Accelerator</title>
+  <!-- Bootstrap CSS & Google Fonts are the same as in projects.html -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #1e1e1e; color: #F9FAFB; padding-top: 56px; }
+    .container { max-width: 900px; margin-top: 80px; }
+    h1 { color: #14B8A6; margin-bottom: 20px; }
+    h2 { color: #F9FAFB; margin-top: 40px; }
+    p { color: #e2e8f0; line-height: 1.6; }
+    .btn-back { margin-top: 30px; }
+    .project-image { width: 100%; height: auto; margin-bottom: 30px; border: 1px solid #555; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar (same as in projects.html) -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(30, 30, 30, 0.95);">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Simon<span>Youn</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../experience.html">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="../awards.html">Awards</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Zoom Zoom CPU &amp; Keccak f1600 Accelerator</h1>
+    <!-- Leave space for a project image -->
+    <img src="images/zoom_zoom_large.png" alt="Zoom Zoom CPU schematic or board" class="project-image">
+
+    <h2>Objective</h2>
+    <p>
+      Zoom Zoom’s goal was to build a custom 16-bit CPU featuring a unique opcode set, memory management unit, and an integrated Keccak-f1600 accelerator core. Final fabrication occurred as part of TinyTapeOut’s TT08 multi-project wafer run.
+    </p>
+
+    <h2>Outcome &amp; Contribution</h2>
+    <p>
+      • Designed and verified the entire CPU datapath and control logic in Verilog.<br>
+      • Implemented handshake lines and data transfers between main memory and the Keccak f1600 accelerator.<br>
+      • Successfully synthesized the design, taped out on TT08, and validated basic operation post-fabrication.<br>
+      • Worked closely with a four-member team to integrate the Verilog IP with the wafer foundry toolchain.
+    </p>
+
+    <h2>Skills &amp; Tools</h2>
+    <ul>
+      <li>Verilog (RTL coding, testbenches)</li>
+      <li>Digital Electronics (CPU microarchitecture)</li>
+      <li>ASIC Design (TinyTapeOut flow, foundry PDK)</li>
+      <li>Team Collaboration (Git, version control)</li>
+    </ul>
+
+    <a href="../projects.html" class="btn btn-primary btn-back">← Back to Projects</a>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
